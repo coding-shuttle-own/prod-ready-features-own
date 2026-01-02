@@ -4,13 +4,15 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.envers.Audited;
 
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Audited
 @Table(name = "posts")
-public class PostEntity {
+public class PostEntity extends AuditableEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,5 +20,4 @@ public class PostEntity {
 
     private String title;
     private String description;
-
 }
